@@ -1,0 +1,25 @@
+
+.navbar-nav > li.active {
+  background: #007bff !important; /* Change to your desired color */
+  color: white;
+  /* margin-top: 5px; */
+}
+
+.navbar-nav > li.active a {
+  color: white; /* Ensures link text is visible on dark background */
+}
+.navbar-default .navbar-nav>.active>a{
+    background-color: initial !important;
+}
+/* 
+.navbar-nav>li>a {
+    padding-top: inherit !important;
+    padding-bottom: inherit !important;
+    line-height: inherit !important;
+}
+.nav>li>a {
+  padding: 8px 16px !important;
+} */
+ p{
+  color: red;
+ }

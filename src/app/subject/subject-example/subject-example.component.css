@@ -1,0 +1,15 @@
+.parenet-div {
+    display: flex;
+    padding: 2px;
+}
+
+.divbox {
+    border: 1px solid #ccc;
+    height: auto;
+    padding: 10px;
+    width: 20%;
+    margin-right: 3px;
+}
+.divbox div{
+    color: blue;
+}

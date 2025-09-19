@@ -1,0 +1,50 @@
+<div class="container">
+    <div>
+        <button type="button" class="btn btn-primary" routerLink="/add-employee">Back to main page </button>
+    </div>
+    <!-- <div>
+        {{userDetails2| json}}
+    </div> -->
+    <table class="table table-boder">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>City</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of userDetails">
+                <td>{{user.name}}</td>
+                <td>{{user.username}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.address.city}}</td>
+            </tr>
+
+        </tbody>
+    </table>
+    <div class="mt-2">
+        <span style="color:green"> User details Table Data</span>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td>{{userDetails2?.name}}</td>
+                </tr>
+                <tr>
+                    <th> User Name</th>
+                    <td>{{userDetails2?.username}}</td>
+                </tr>
+                  <tr>
+                    <th> Email</th>
+                    <td>{{userDetails2?.email}}</td>
+                </tr>
+                  <tr>
+                    <th> City</th>
+                    <td>{{userDetails2?.address?.city}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
