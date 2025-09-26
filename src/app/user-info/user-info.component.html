@@ -1,1 +1,8 @@
 <p>user-info works!</p>
+<div>get data from child component: {{valdata}}</div>
+<button class="btn btn-sm btn-info" (click)="sendStundent()"> click open student component</button>
+  
+<div *ngIf="showstundent">
+  <app-student [inputvar]="parentdata" (myoutputdata)="getdata($event)"></app-student>
+</div>
+

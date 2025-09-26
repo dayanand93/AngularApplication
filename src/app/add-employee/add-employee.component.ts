@@ -1,18 +1,19 @@
-import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, DoCheck, OnDestroy, OnInit, signal } from '@angular/core';
 import { UsersercicesService } from '../service/usersercices.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { StudentComponent } from '../student/student.component';
 
 @Component({
   selector: 'app-add-employee',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink,],
   providers: [UsersercicesService],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css',
 })
-export class AddEmployeeComponent implements OnInit, OnDestroy {
+export class AddEmployeeComponent implements OnInit,OnDestroy {
    empInfoGet: any;
   //empInfoGet = signal<any[]>([]);
   //empInfoGet = signal([]);
@@ -21,6 +22,7 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
   constructor(private userS: UsersercicesService) {}
   ngOnInit(): void {
     this.getdata();
+    
   }
   getdata(): void {
     this.isloading = true;
@@ -32,6 +34,9 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
       console.log(data);
     });
   }
+  
+
+
   // memory leak in angular
   ngOnDestroy(): void {
     this.buttonclick();
@@ -42,4 +47,5 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
       console.log('Unsubscribed successfully');
     }
   }
+  
 }
