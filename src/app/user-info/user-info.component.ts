@@ -11,7 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class UserInfoComponent implements OnInit{
   parentdata: any;
-  showstundent:boolean = false
+  showstundent:boolean = false;
+  count = 0;
   valdata: any;
   ngOnInit(): void {
     
@@ -20,6 +21,7 @@ export class UserInfoComponent implements OnInit{
     this.parentdata = "i am your paranet"
     this.showstundent = true
     //this.sendStundent = true
+    this.count++
   }
   getdata(value:any){
   this.valdata = value

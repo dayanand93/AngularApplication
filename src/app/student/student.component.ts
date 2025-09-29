@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import {
+  ChangeDetectionStrategy,
   Component,
   DoCheck,
   EventEmitter,
@@ -15,6 +16,7 @@ import { RouterLink } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './student.component.html',
+ // changeDetection:ChangeDetectionStrategy.OnPush,
   styleUrl: './student.component.css',
 })
 export class StudentComponent implements OnInit {
@@ -32,4 +34,7 @@ export class StudentComponent implements OnInit {
   //  ngDoCheck(): void { //Purpose: Allows custom change detection logic.
   //    console.log('hi')
   //  }
+    getclickdata(){
+    //  console.log('hi1')
+    }
 }

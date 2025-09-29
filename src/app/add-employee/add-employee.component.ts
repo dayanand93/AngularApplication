@@ -8,13 +8,13 @@ import { StudentComponent } from '../student/student.component';
 @Component({
   selector: 'app-add-employee',
   standalone: true,
-  imports: [CommonModule, RouterLink,],
+  imports: [CommonModule, RouterLink],
   providers: [UsersercicesService],
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css',
 })
-export class AddEmployeeComponent implements OnInit,OnDestroy {
-   empInfoGet: any;
+export class AddEmployeeComponent implements OnInit, OnDestroy {
+  empInfoGet: any;
   //empInfoGet = signal<any[]>([]);
   //empInfoGet = signal([]);
   isloading: boolean = false;
@@ -22,20 +22,40 @@ export class AddEmployeeComponent implements OnInit,OnDestroy {
   constructor(private userS: UsersercicesService) {}
   ngOnInit(): void {
     this.getdata();
-    
   }
   getdata(): void {
     this.isloading = true;
-      // this.subscription =
-   this.userS.getDataInfo().subscribe((data) => {
-     this.empInfoGet = data;
-    //this.empInfoGet.set(data)
+    // this.subscription =
+    this.userS.getDataInfo().subscribe((data) => {
+      this.empInfoGet = data;
+      //this.empInfoGet.set(data)
       this.isloading = false;
       console.log(data);
     });
   }
-  
 
+  sortDirection: boolean = true;
+
+  sortData(column: string): void {
+    const keys = column.split('.');
+
+    this.empInfoGet.sort((a: any, b: any) => {
+      let valueA = a;
+      let valueB = b;
+
+      // Support nested properties like address.city
+      for (let key of keys) {
+        valueA = valueA[key];
+        valueB = valueB[key];
+      }
+
+      if (valueA < valueB) return this.sortDirection ? -1 : 1;
+      if (valueA > valueB) return this.sortDirection ? 1 : -1;
+      return 0;
+    });
+
+    this.sortDirection = !this.sortDirection;
+  }
 
   // memory leak in angular
   ngOnDestroy(): void {
@@ -47,5 +67,4 @@ export class AddEmployeeComponent implements OnInit,OnDestroy {
       console.log('Unsubscribed successfully');
     }
   }
-  
 }
