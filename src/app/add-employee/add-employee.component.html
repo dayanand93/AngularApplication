@@ -1,6 +1,6 @@
 <div class="d-flex" style="display: flex;">
-    <p>Info data</p>
-    <button type="button" class="btn btn-info" (click)="buttonclick()">click</button>
+    <p>Employee works</p>
+    <!-- <button type="button" class="btn btn-info" (click)="buttonclick()">click</button> -->
 </div>
 
 <div class="parent-div">
@@ -17,6 +17,7 @@
     <th (click)="sortData('username')">User Name</th>
     <th (click)="sortData('email')">Email</th>
     <th (click)="sortData('address.city')">City</th>
+    <th>Action</th>
   </tr>
 
     </thead>
@@ -27,6 +28,7 @@
             <td>{{empdata.username}}</td>
             <td>{{empdata.email}}</td>
             <td>{{empdata.address.city}}</td>
+            <td><button (click)="deleteEmployee(empdata.id)">Delete</button></td>
         </tr>
 
     </tbody>

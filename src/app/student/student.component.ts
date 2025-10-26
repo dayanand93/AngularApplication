@@ -35,6 +35,6 @@ export class StudentComponent implements OnInit {
   //    console.log('hi')
   //  }
     getclickdata(){
-    //  console.log('hi1')
+     //  console.log('hi1')
     }
 }

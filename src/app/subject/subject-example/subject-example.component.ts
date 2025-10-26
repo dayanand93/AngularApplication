@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AsyncSubject, BehaviorSubject, ReplaySubject, Subject, switchMap } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
+//import { CommonModule, NgForOf } from "../../../../node_modules/@angular/common/index";
 @Component({
   selector: 'app-subject-example',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './subject-example.component.html',
   styleUrl: './subject-example.component.css',
 })
@@ -44,14 +46,15 @@ export class SubjectExampleComponent implements OnInit {
   // expale of replay subject
   replaySubjets() {
     const replaysubject = new ReplaySubject(2);
-    replaysubject.subscribe((datareply) => {
-      this.replaySubjetsdata = datareply
-      console.log('replay subject expamle', datareply);
-    });
     replaysubject.next('hi1');
     replaysubject.next('hi2');
     replaysubject.next('hi3');
     replaysubject.next('hi4');
+
+     replaysubject.subscribe((datareply) => {
+      this.replaySubjetsdata = datareply
+      console.log('replay subject expamle', datareply); // out put hi3,hi4
+    });
   }
   //example of async subject async subject doesnot take the data  without comeplete methdod
   // put the completed methd then take the before next data from obserbales
@@ -67,7 +70,7 @@ export class SubjectExampleComponent implements OnInit {
      asyncsubject.next(3);
      asyncsubject.next(4);
      asyncsubject.complete()
-  }
+  }   // output 4
   // how to call api with subject
   
    

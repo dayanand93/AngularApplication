@@ -1,11 +1,36 @@
-<p>user-info works!</p>
-<div>
+  <p>user-info works!</p>
+  <div>
     count show {{count}}
-</div>
-<div>get data from child component: {{valdata}}</div>
-<button class="btn btn-sm btn-info" (click)="sendStundent()"> click open student component</button>
-  
-<div *ngIf="showstundent">
-  <app-student [inputvar]="parentdata" (myoutputdata)="getdata($event)"></app-student>
-</div>
+  </div>
+  <div>get data from child component: {{valdata}}</div>
+  <button class="btn btn-sm btn-info" (click)="sendStundent()"> click open student component</button>
 
+  <div *ngIf="showstundent">
+    <app-student [inputvar]="parentdata" (myoutputdata)="getdata($event)"></app-student>
+  </div>
+  <div class="container">
+    <div>
+      @defer (when showdata) {
+      @for (item of corses; track $index) {
+      <div>{{item.name}}</div>
+      <div>{{item.descriptions}}</div>
+      <!-- <div>{{item.Image}}</div> -->
+      <p><img src="{{item.Image}}" alt=""></p>
+      }
+      }
+      @loading(minimum 2s) {
+      <span>loading...</span>
+      }@placeholder (){
+      <span>startind data load </span>
+      }
+    </div>
+
+    <div>
+      <button class="btn btn-sm btn-primary" #showcontents>Click on button</button>
+
+      @defer (on interaction(showcontents)) {
+      <span>Content loaded successfully!</span>
+      }
+    </div>
+
+  </div>

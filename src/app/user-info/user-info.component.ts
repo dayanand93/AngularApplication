@@ -14,6 +14,7 @@ export class UserInfoComponent implements OnInit{
   showstundent:boolean = false;
   count = 0;
   valdata: any;
+  showdata:boolean = true;
   ngOnInit(): void {
     
   }
@@ -26,4 +27,20 @@ export class UserInfoComponent implements OnInit{
   getdata(value:any){
   this.valdata = value
   }
+
+   corses = [
+      {
+        id:1,
+        name:"MBA",
+        descriptions:"MCA loream epsume",
+       Image:'assets/images/natureimage.webp'
+      },
+        {
+        id:2,
+        name:"BA",
+        descriptions:"MCA loream epsumedd",
+        Image:'assets/images/natureimage.webp'
+
+      }
+   ] 
 }

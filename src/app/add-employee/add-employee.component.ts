@@ -2,7 +2,7 @@ import { Component, DoCheck, OnDestroy, OnInit, signal } from '@angular/core';
 import { UsersercicesService } from '../service/usersercices.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { concatMap, delay, from, mergeMap, of, Subscription, switchMap } from 'rxjs';
 import { StudentComponent } from '../student/student.component';
 
 @Component({
@@ -22,6 +22,9 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
   constructor(private userS: UsersercicesService) {}
   ngOnInit(): void {
     this.getdata();
+    this.concateMapExmaples();
+    // this.mergeMapExmaples();
+    //this.switchMapExmaples();
   }
   getdata(): void {
     this.isloading = true;
@@ -30,7 +33,7 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
       this.empInfoGet = data;
       //this.empInfoGet.set(data)
       this.isloading = false;
-      console.log(data);
+      console.log('get data show ',data);
     });
   }
 
@@ -67,4 +70,32 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
       console.log('Unsubscribed successfully');
     }
   }
+
+  deleteEmployee(id: number) {
+    this.empInfoGet = this.empInfoGet.filter(
+      (emp: { id: number }) => emp.id !== id
+    );
+  }
+
+  concateMapExmaples() {
+    from([1, 2, 3])
+      .pipe(concatMap((val) => of(val).pipe(delay(1000))))
+      .subscribe((val) => {
+        console.log('concat map example', val);
+      });
+  }
+
+  mergeMapExmaples() {
+    from([1, 2, 3]).pipe(
+    mergeMap(val => of(val).pipe(delay(1000)))).subscribe((val)=>{
+      console.log('merge map example', val);
+    });
+  ``
+  }
+
+    switchMapExmaples() {
+      from([1, 2, 3])
+        .pipe(switchMap((val) => of(val).pipe(delay(1000))))
+        .subscribe(console.log);
+    }
 }
