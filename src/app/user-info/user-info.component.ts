@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, effect, OnInit, signal } from '@angular/core';
 import { StudentComponent } from '../student/student.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from "@angular/forms";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [StudentComponent,CommonModule],
+  imports: [StudentComponent, CommonModule, FormsModule],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })
@@ -15,6 +17,17 @@ export class UserInfoComponent implements OnInit{
   count = 0;
   valdata: any;
   showdata:boolean = true;
+  username: string = "";
+
+ // countNum = 0;
+ countNum = signal(0);
+
+     constructor(private route :Router) { 
+   //   console.log("counter", this.countNum);
+      effect(() => {
+        console.log("track the counter value", this.countNum());
+      });
+     }
   ngOnInit(): void {
     
   }
@@ -33,7 +46,8 @@ export class UserInfoComponent implements OnInit{
         id:1,
         name:"MBA",
         descriptions:"MCA loream epsume",
-       Image:'assets/images/natureimage.webp'
+        Image:'assets/images/natureimage.webp'
+      // Image:'assets/images/natureimage.webp'
       },
         {
         id:2,
@@ -43,4 +57,18 @@ export class UserInfoComponent implements OnInit{
 
       }
    ] 
+
+   userDetails (){
+     this.route.navigate(['/user'], 
+      {queryParams:{username:this.username}
+    }
+  )
+
+   // alert ("Welcome " + this.username)
+   }
+ singlesCount(){
+   // this.countNum++;
+    this.countNum.set(this.countNum() + 1)
+ }
+
 }

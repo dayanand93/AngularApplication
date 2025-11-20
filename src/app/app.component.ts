@@ -4,6 +4,7 @@ import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -17,10 +18,16 @@ export class AppComponent implements OnInit{
 
   title = 'Angular-apps';
   loginflag:boolean = false
-  constructor(private router:Router){}
+  constructor(private router:Router, private titleService:Title){}
+  // public setTitle(newTitle: string) {
+  //   this.titleService.setTitle(newTitle);
+  // }
   ngOnInit(): void {
-  
+    /*how to set the title using title services in angular */
+   this.titleService.setTitle("Login Page");
   }
+  
+  
 
   handleLogin(value:any){
     console.log("test bollean data",value)

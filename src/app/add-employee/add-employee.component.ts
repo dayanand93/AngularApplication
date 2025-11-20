@@ -24,7 +24,7 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
     this.getdata();
     this.concateMapExmaples();
     // this.mergeMapExmaples();
-    //this.switchMapExmaples();
+    this.switchMapExmaples();
   }
   getdata(): void {
     this.isloading = true;
@@ -90,7 +90,7 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
     mergeMap(val => of(val).pipe(delay(1000)))).subscribe((val)=>{
       console.log('merge map example', val);
     });
-  ``
+  
   }
 
     switchMapExmaples() {

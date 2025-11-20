@@ -1,5 +1,7 @@
   <p>user-info works!</p>
-  <div>
+  <div class="row">
+    <div class="col-md-6">
+      <div>
     count show {{count}}
   </div>
   <div>get data from child component: {{valdata}}</div>
@@ -9,6 +11,7 @@
     <app-student [inputvar]="parentdata" (myoutputdata)="getdata($event)"></app-student>
   </div>
   <div class="container">
+    <img  alt="myimage" src=".../.../assets/images/googles.png" width="300" height="200"/>
     <div>
       @defer (when showdata) {
       @for (item of corses; track $index) {
@@ -20,7 +23,7 @@
       }
       @loading(minimum 2s) {
       <span>loading...</span>
-      }@placeholder (){
+      }@placeholder (minimum 2s){
       <span>startind data load </span>
       }
     </div>
@@ -34,3 +37,22 @@
     </div>
 
   </div>
+    </div>
+    <div class="col-md-6">
+       <p><input type="text" ngModel placeholder="enter your name" [(ngModel)]="username"/></p> 
+        <button type="button" class="btn btn-info btn-sm" (click)="userDetails()">
+           shara data to User Component
+        </button>
+
+        <div>
+          <h3>
+            {{countNum()}}
+          </h3>
+          <div>
+            <button type="button" class="btn btn-sm btn-primary" (click)="singlesCount()">signales Examles</button>
+          </div>
+        </div>
+
+    </div>
+  </div>
+  

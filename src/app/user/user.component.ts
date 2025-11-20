@@ -13,9 +13,12 @@ import { JsonPipe, CommonModule } from '@angular/common';
 export class UserComponent implements OnInit {
   userDetails: any;
   userDetails2:any
+  getfielduser: any;
+  
   constructor(private route: ActivatedRoute, private userServices :UsersercicesService, private routerNavigate:Router) {}
   ngOnInit(): void {
-    this.getRoutePrameterRize()
+    this.getRoutePrameterRize();
+    this.getUserInfo();
   }
   getRoutePrameterRize():void{
     let id = this.route.snapshot.params['id'];
@@ -24,6 +27,14 @@ export class UserComponent implements OnInit {
        this.userDetails2 = res;
    })
     console.log(this.route)
+  }
+    
+  getUserInfo():void{
+   
+     this.route.queryParams.subscribe((res)=>{
+      this.getfielduser = res['username'];
+       //console.log('testingh',res.username)
+     })
   }
   
 }

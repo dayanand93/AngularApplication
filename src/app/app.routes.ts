@@ -11,11 +11,12 @@ export const routes: Routes = [
          {path:"", redirectTo :'login',pathMatch:'full'},
          {path:"login",component:LoginComponent},
         {path:"profile", component:ProfileComponent},
-         {path:"add-employee", component:AddEmployeeComponent},
+         {path:"add-employee", component:AddEmployeeComponent,title:'Add Employee'},
         // {path:"", redirectTo:'add-employee', pathMatch:'full'},
-        { path: "add-employee", component: AddEmployeeComponent },
-        {path:"user-info",component:UserInfoComponent},
+        // { path: "add-employee", component: AddEmployeeComponent },
+        {path:"user-info",component:UserInfoComponent,title:'User Info'},
         {path:"user/:id",component:UserComponent},
+        {path:"user",component:UserComponent},
         {path: "student",component:StudentComponent},
         {path:'subject', component:SubjectExampleComponent}
 ];
