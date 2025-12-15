@@ -35,4 +35,9 @@ export class AppComponent implements OnInit{
   navigateMainpage(){
       this.loginflag = true;
   }
+
+  showmaipage:boolean=true;
+  islogin(){
+    this.showmaipage = false;
+  }
 }

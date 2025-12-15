@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -18,6 +18,7 @@ import { UsersercicesService } from '../service/usersercices.service';
 })
 export class LoginComponent implements OnInit {
   @Output() outputSendEvent: EventEmitter<any> = new EventEmitter();
+  @Input() showmaipage :boolean = true;
   flagdata: boolean = false;
 
   email: string = '';
@@ -45,9 +46,15 @@ export class LoginComponent implements OnInit {
       password:this.password
     }
     console.log(payload);
-    this.userS.getTokent(payload).subscribe((result)=>{
-    localStorage.setItem("token",result.token)
-    })
+    if(this.email=="abc@gmail.com" && this.password =="12345"){
+     sessionStorage.setItem("isLogin","true");
+    } else{
+      sessionStorage.setItem("isLogin","false");
+    }
+
+    // this.userS.getTokent(payload).subscribe((result)=>{
+    // localStorage.setItem("token",result.token)
+    // })
 
     this.router.navigate(['/profile']);
   }

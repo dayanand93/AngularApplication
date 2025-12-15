@@ -20,6 +20,7 @@ import { RouterLink } from '@angular/router';
   styleUrl: './student.component.css',
 })
 export class StudentComponent implements OnInit {
+  studentName: string = 'Dachauha';
   @Input() inputvar: any;
   @Output() myoutputdata: EventEmitter<any> = new EventEmitter<any>();
   senddataToParent = 'studentdata';

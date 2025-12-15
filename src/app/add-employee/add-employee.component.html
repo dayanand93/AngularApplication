@@ -1,5 +1,9 @@
 <div class="d-flex" style="display: flex;">
-    <p class="emp" style="color:red">Employee works</p>
+    <p> This add Employee component works</p>
+    
+    <marquee behavior="scroll" direction="left">
+        This text will scroll from right to left.
+    </marquee>
     <!-- <button type="button" class="btn btn-info" (click)="buttonclick()">click</button> -->
 </div>
 
@@ -8,7 +12,7 @@
         Loading Please wait...
     </div>
 </div>
-<table class="table">
+<table class="table table-bordered table-striped">
     <thead>
        
  <tr>
@@ -22,8 +26,8 @@
 
     </thead>
     <tbody>
-        <tr *ngFor="let empdata of empInfoGet"> <!--| async empInfoGet-->
-            <td><a [routerLink]="['/user',empdata.id]">{{empdata.id}}</a></td>
+        <tr *ngFor="let empdata of empInfoGet "> <!--| async empInfoGet-->
+            <td><a [routerLink]="['/user',empdata.id]" class="align-adjust">{{empdata.id}}</a></td>
             <td>{{empdata.name}}</td>
             <td>{{empdata.username}}</td>
             <td>{{empdata.email}}</td>
