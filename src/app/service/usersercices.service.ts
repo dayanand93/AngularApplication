@@ -10,9 +10,10 @@ export class UsersercicesService {
 
   constructor(private http:HttpClient) { }
   //public baseurls = environment.BASEURL;
-
+ 
   getDataInfo():Observable<any>{
     return this.http.get<any>('https://jsonplaceholder.typicode.com/users')
+    //return this.http.get<any>('https://jsonplaceholder.typicode.com/todos')
    // return this.http.get<any>('http://mu.mule-training.com/american-ws/flights?destination=LAX')
   }
   getuser(id:number):Observable<any>{

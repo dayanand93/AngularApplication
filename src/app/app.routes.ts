@@ -17,7 +17,7 @@ export const routes: Routes = [
        {path:"header", component:LoginComponent},
          // {path:"", redirectTo:'add-employee', pathMatch:'full'},
         // { path: "add-employee", component: AddEmployeeComponent },
-        {path:"user-info",component:UserInfoComponent,title:'User Info'},
+       {path:"user-info",component:UserInfoComponent,title:'User Info'},
         {path:"user/:id",component:UserComponent},
         {path:"user",component:UserComponent},
         {path: "student",component:StudentComponent},
