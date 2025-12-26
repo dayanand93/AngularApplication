@@ -9,7 +9,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent,CommonModule,RouterOutlet],
+  imports: [CommonModule,RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   encapsulation:ViewEncapsulation.None // apply the css all the componet
