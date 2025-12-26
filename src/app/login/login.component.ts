@@ -45,23 +45,24 @@ export class LoginComponent implements OnInit {
       email:this.email,
       password:this.password
     }
-    console.log(payload);
-    if(this.email=="abc@gmail.com" && this.password =="12345"){
-     sessionStorage.setItem("isLogin","true");
-    } else{
-      sessionStorage.setItem("isLogin","false");
-    }
+      
+      console.log(payload);
+      if(this.email=="abc@gmail.com" && this.password =="12345"){
+      sessionStorage.setItem("isLogin","true");
+      } else{
+        sessionStorage.setItem("isLogin","false");
+      }
 
     // this.userS.getTokent(payload).subscribe((result)=>{
     // localStorage.setItem("token",result.token)
     // })
 
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/layout']);
   }
   profilesShow(){
-    this.userS.profile().subscribe((results)=>{
-      console.log('test',results)
-    })
+    // this.userS.profile().subscribe((results)=>{
+    //   console.log('test',results)
+    // })
   }
      
 }

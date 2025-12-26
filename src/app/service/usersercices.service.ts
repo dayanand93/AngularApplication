@@ -4,8 +4,11 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // this makes singleton service across the app                                                  
 })
+
+// @Injectable() // use this when we provide service in component providers array
+                 //  use thsis normall serevice  or  this is not singleton across the app
 export class UsersercicesService {
 
   constructor(private http:HttpClient) { }

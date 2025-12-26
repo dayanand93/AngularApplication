@@ -4,7 +4,7 @@
     <marquee behavior="scroll" direction="left">
         This text will scroll from right to left.
     </marquee>
-    <!-- <button type="button" class="btn btn-info" (click)="buttonclick()">click</button> -->
+    <!-- <button type="button" class="btn btn-info" (click)="buttonclick()">Button  click for NgDestroy</button> -->
 </div>
 
 <div class="parent-div">
@@ -27,7 +27,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let empdata of empInfoGet "> <!--| async empInfoGet-->
-            <td><a [routerLink]="['/user',empdata.id]" class="align-adjust">{{empdata.id}}</a></td>
+            <td><a [routerLink]="['/layout','user', empdata.id]" class="align-adjust">{{empdata.id}}</a></td>
             <td>{{empdata.name}}</td>
             <td>{{empdata.username}}</td>
             <td>{{empdata.email}}</td>

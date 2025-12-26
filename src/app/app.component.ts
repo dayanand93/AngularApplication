@@ -3,13 +3,13 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent,CommonModule],
+  imports: [HeaderComponent,CommonModule,RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
   encapsulation:ViewEncapsulation.None // apply the css all the componet

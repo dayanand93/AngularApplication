@@ -6,8 +6,8 @@ export const authsGuard: CanActivateFn = (route, state) => {
   const router = inject(Router);
  
   if (isLogin !== 'true') {
-    alert('Please login first');
-    return router.createUrlTree(['/login']); // Block navigation and redirect
+     alert('Please login first');
+     return router.createUrlTree(['/login']); // Block navigation and redirect
   }
 
   return true;

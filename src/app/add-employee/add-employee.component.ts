@@ -9,7 +9,8 @@ import { StudentComponent } from '../student/student.component';
   selector: 'app-add-employee',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  providers: [UsersercicesService],
+ // providers: [UsersercicesService], //this is not required if we use providedIn:'root' in service
+                                  // but providedIn:'root' makes singleton service across the app
   templateUrl: './add-employee.component.html',
   styleUrl: './add-employee.component.css',
 })
@@ -30,7 +31,7 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
     this.isloading = true;
     // this.subscription =
  // this.empInfoGet = this.userS.getDataInfo() use for async pipe
-    this.userS.getDataInfo().subscribe((data) => {
+    this.subscription = this.userS.getDataInfo().subscribe((data) => {
      this.empInfoGet = data;
       //this.empInfoGet.set(data)
       this.isloading = false;
@@ -64,11 +65,12 @@ export class AddEmployeeComponent implements OnInit, OnDestroy {
   // memory leak in angular
   ngOnDestroy(): void {
     this.buttonclick();
+    //console.log('component destroyed');
   }
   buttonclick() {
     if (this.subscription) {
       this.subscription.unsubscribe();
-      console.log('Unsubscribed successfully');
+      console.log('Unsubscribed successfully');// to prevent memory leaks . // this is important when we have long lived subscriptions
     }
   }
 

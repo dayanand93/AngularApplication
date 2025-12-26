@@ -11,14 +11,14 @@
     <app-student [inputvar]="parentdata" (myoutputdata)="getdata($event)"></app-student>
   </div>
   <div class="container">
-    <img  alt="myimage" src=".../.../assets/images/googles.png" width="300" height="200"/>
+    <!-- <img  alt="myimage" src=".../.../assets/images/googles.png" width="300" height="200"/> -->
     <div>
       @defer (when showdata) {
       @for (item of corses; track $index) {
       <div>{{item.name}}</div>
       <div>{{item.descriptions}}</div>
       <!-- <div>{{item.Image}}</div> -->
-      <p><img src="{{item.Image}}" alt=""></p>
+      <!-- <p><img src="{{item.Image}}" alt=""></p> -->
       }
       }
       @loading(minimum 2s) {
