@@ -9,6 +9,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { authsGuard } from './gaurds/auths.guard';
 import { ParentComponent } from './parent/parent.component';
 import { LayoutComponent } from './layout/layout.component';
+import { ResolvescomComponent } from './resolvescom/resolvescom.component';
+import { resolveGuard } from './gaurds/resolve.guard';
 
 export const routes: Routes = 
 [
@@ -18,6 +20,10 @@ export const routes: Routes =
             children:[
                {path:"profile", component:ProfileComponent},
          {path:"add-employee", component:AddEmployeeComponent,title:'Add Employee', canActivate:[authsGuard]},
+         {path:"resolvescom",component:ResolvescomComponent,
+           // loadComponent:()=>import('./resolvescom/resolvescom.component').then(m=>m.ResolvescomComponent),
+         title:'Resolve Component',resolve:{data:resolveGuard}
+         },
        {path:"header", component:LoginComponent},
          {path:"", redirectTo:'add-employee', pathMatch:'full'},
         { path: "add-employee", component: AddEmployeeComponent },

@@ -12,4 +12,5 @@ export class ChildComponent {
     mymethod(){
         alert("hello from child component method");
     }
+    
 }

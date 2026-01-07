@@ -1,8 +1,10 @@
+  <div style="margin-top: 50px;">
   <p>user-info works!</p>
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div>
-    count show {{count}}
+       
+      <p>count show {{count}}</p>
   </div>
   <div>get data from child component: {{valdata}}</div>
   <button class="btn btn-sm btn-info" (click)="sendStundent()"> click open student component</button>
@@ -13,7 +15,8 @@
   <div class="container">
     <!-- <img  alt="myimage" src=".../.../assets/images/googles.png" width="300" height="200"/> -->
     <div>
-      @defer (when showdata) {
+      <!--condition base data load  --> 
+    @defer (when showdata) { 
       @for (item of corses; track $index) {
       <div>{{item.name}}</div>
       <div>{{item.descriptions}}</div>
@@ -38,7 +41,7 @@
 
   </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
        <p><input type="text" ngModel placeholder="enter your name" [(ngModel)]="username"/></p> 
         <button type="button" class="btn btn-info btn-sm" (click)="userDetails()">
            shara data to User Component
@@ -48,11 +51,25 @@
           <h3>
             {{countNum()}}
           </h3>
+           <p>This is normal varibale: {{countNums}}</p>
           <div>
             <button type="button" class="btn btn-sm btn-primary" (click)="singlesCount()">signales Examles</button>
           </div>
         </div>
 
     </div>
+     <div class="col-md-4">
+      <span>computed signales Examles</span>
+        <div>
+          <h3>
+            {{fullName()}}
+          </h3>
+          <!-- <h3>{{mysingleSignal()}}</h3> -->
+
+          <div>
+            <button type="button" class="btn btn-sm btn-primary" (click)="addFullname()">Change full Name </button>
+          </div>
+        </div>
+     </div>
   </div>
-  
+  </div>

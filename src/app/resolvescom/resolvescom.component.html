@@ -1,0 +1,26 @@
+<div style="margin-top: 52px;">
+    <p>resolvescom works!</p>
+
+    <div>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Employee ID</th>
+                <th>Employee Name</th>
+                <th>email</th>
+                <th>username</th>
+                <th>city</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let emp of employeeData">
+                <td>{{ emp.id }}</td>
+                <td>{{ emp.name }}</td>
+                <td> {{emp.email}}</td>
+                <td>{{emp.username}}</td>
+                 <td>{{emp.address.city}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

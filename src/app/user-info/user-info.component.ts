@@ -1,4 +1,4 @@
-import { Component, effect, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, OnInit, signal, WritableSignal } from '@angular/core';
 import { StudentComponent } from '../student/student.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from "@angular/forms";
@@ -20,7 +20,7 @@ export class UserInfoComponent implements OnInit{
   showdata:boolean = true;
   username: string = "";
 
- // countNum = 0;
+  countNums = 0;
  countNum = signal(0);
 
      constructor(private route :Router) { 
@@ -28,6 +28,8 @@ export class UserInfoComponent implements OnInit{
       effect(() => {
          console.log("track the counter value", this.countNum());
       });
+
+      console.log("normal variable", this.countNums);
      }
   ngOnInit(): void {
     this.observableExample();
@@ -69,7 +71,7 @@ export class UserInfoComponent implements OnInit{
    // alert ("Welcome " + this.username)
    }
  singlesCount(){
-   // this.countNum++;
+   this.countNums++;
     this.countNum.set(this.countNum() + 1)
  }
 
@@ -101,5 +103,19 @@ export class UserInfoComponent implements OnInit{
       subject.next(Math.random());
        subject.next(Math.random());
    }
+
+    mysingleSignal:WritableSignal<string>= signal('Hello Angular 18 Signals');
+
+   // computed signal example
+   fisrtName = signal('John');
+   lastName = signal('Doe');
+   fullName = computed(() => {
+      return `${this.fisrtName()} ${this.lastName()}`;
+  });
+  addFullname(){
+   this.fisrtName.set('David');
+   this.lastName.set('kumar');
+  }
+
 
 }

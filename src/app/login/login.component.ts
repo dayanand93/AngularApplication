@@ -53,6 +53,16 @@ export class LoginComponent implements OnInit {
         sessionStorage.setItem("isLogin","false");
       }
 
+    // this.userS.getUserdata(payload).subscribe((result)=>{
+    //   console.log('result',result)
+    //   if(result.token){
+    //     alert('Login Successful');
+    //     sessionStorage.setItem("isLogin","true");
+    //   }
+    //   console.log('login response',result)
+    //   sessionStorage.setItem("token",result.token)
+    // });
+
     // this.userS.getTokent(payload).subscribe((result)=>{
     // localStorage.setItem("token",result.token)
     // })

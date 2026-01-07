@@ -1,26 +1,75 @@
-.parent {
+/* .parent {
     font-family: system-ui;
     background: #f06d06;
+    background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
     text-align: center;
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: background 2s ease !important;
+     transition: all 0.5s;
+} */
+/* .parent:hover {
+    background: linear-gradient(135deg, #4f5bd5, #962fbf, #d62976, #fa7e1e, #feda75);
+    transition: all 0.5s; 
+  } */
+
+  
+/* .parent {
+    font-family: system-ui;
+    background: #f06d06;
+    background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    text-align: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 2s ease !important;
+    transition: all 0.5s;
+} */
+
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
+
+.parent {
+  font-family: system-ui;
+  background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+  background-size: 400% 400%; /* Important for smooth animation */
+  text-align: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: gradientAnimation 30s ease-in-out infinite; /* Slow & smooth */
+}
+
+
+
 
   /* @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap'); */
 
-    parent-inputs{
-      background: linear-gradient(135deg, #feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5);
+    .parent-inputs{
+      /* background: #fff; */
+      background: rgba(255, 255, 255, 0.8);
+      padding: 40px;
       font-family: Arial, sans-serif;
       display:flex;
       justify-content:center;
       align-items:center;
-      height:100vh;
       margin:0;
-      color:#fff;
       flex-direction:column;
-      transition: background 2s ease;
+      border-radius:15px;
     }
 
     .insta-header{

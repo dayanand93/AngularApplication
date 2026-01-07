@@ -11,16 +11,20 @@ import { ChildComponent } from '../child/child.component';
 export class ParentComponent implements AfterViewInit {
   @ViewChild(ChildComponent) childs !: ChildComponent;
   showchiltstrdata: any
+  childataaceess: string = '';
   
   ngAfterViewInit(): void {
     // this.showchiltstrdata = this.childs.str;
+  
     console.log(this.childs.str);
+
   }
      childdata(){
         alert(this.childs.str);
      }  
   accesschild(){
     this.showchiltstrdata = this.childs.mymethod();
+      this.childataaceess = this.childs.str;
    // this.childs.mymethod();
   }
 }

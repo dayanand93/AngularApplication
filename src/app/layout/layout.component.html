@@ -1,41 +1,53 @@
 <!-- <p>test</p> -->
-  <!-- <div>
+<!-- <div>
     <app-login></app-login>
   </div> -->
-<nav class="navbar navbar-default" >
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Company Logo</a>
     </div>
+
+    <ul class="nav navbar-nav">
+      <!-- Employee info -->
+      <li routerLinkActive="active">
+        <a [routerLink]="['/layout', 'add-employee']">Employee info</a>
+      </li>
+
+       <li routerLinkActive="active">
+        <a [routerLink]="['/layout', 'resolvescom']">Show ResolveGuard</a>
+      </li>
+
+      <!-- User Info -->
+      <li routerLinkActive="active">
+        <a [routerLink]="['/layout', 'user-info']">User Info</a>
+      </li>
+
+      <!-- Subject Example (was /subject; needs /layout/subject) -->
+      <li routerLinkActive="active">
+        <a [routerLink]="['/layout', 'subject']">Subject Example</a>
+      </li>
+
+      <!-- Parent (was /parent; needs /layout/parent) -->
+      <li routerLinkActive="active">
+        <a [routerLink]="['/layout', 'parent']">Parent component (ViewChild)</a>
+      </li>
+
+      <!-- Placeholder pages (no router links yet) -->
+      <li><a>Page 4</a></li>
+      <li><a>Page 5</a></li>
+    </ul>
     
-<ul class="nav navbar-nav">
-  <!-- Employee info -->
-  <li  routerLinkActive="active" >
-    <a  [routerLink]="['/layout', 'add-employee']">Employee info</a>
-  </li>
+ <!-- Logout button on the right -->
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <button class="btn btn-primary navbar-btn" (click)="logout()">LogOff</button>
+      </li>
+    </ul>
 
-  <!-- User Info -->
-<li  routerLinkActive="active" >
-    <a [routerLink]="['/layout', 'user-info']">User Info</a>
-</li>
-
-  <!-- Subject Example (was /subject; needs /layout/subject) -->
-  <li routerLinkActive="active" >
-    <a [routerLink]="['/layout', 'subject']">Subject Example</a>
-  </li>
-
-  <!-- Parent (was /parent; needs /layout/parent) -->
-  <li>
-    <a [routerLink]="['/layout', 'parent']">Parent component (ViewChild)</a>
-  </li>
-
-  <!-- Placeholder pages (no router links yet) -->
-  <li><a>Page 4</a></li>
-  <li><a>Page 5</a></li>
-</ul>
 
   </div>
 </nav>
 <div class="container">
- <router-outlet></router-outlet> 
+  <router-outlet></router-outlet>
 </div>
