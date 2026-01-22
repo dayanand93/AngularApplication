@@ -24,6 +24,8 @@ export class LoginComponent implements OnInit {
   email: string = '';
   password: string = '';
 
+  
+
   loginForm: FormGroup | undefined;
 
   constructor(private fb: FormBuilder ,private router :Router, private userS:UsersercicesService) {}
@@ -74,5 +76,8 @@ export class LoginComponent implements OnInit {
     //   console.log('test',results)
     // })
   }
+    getFullYear = new Date().getFullYear();
+    
+    
      
 }

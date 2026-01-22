@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { constant } from '../constant/constant';
+import { userS } from '../models/userI';
 
 @Injectable({
   providedIn: 'root' // this makes singleton service across the app                                                  
@@ -17,8 +18,8 @@ export class UsersercicesService {
    baseurls = constant.BASEURL;
 
 
-  getDataInfo():Observable<any>{
-    return this.http.get<any>(this.baseurls + 'users'); // users is endpoint
+  getDataInfo():Observable<userS[]>{
+    return this.http.get<userS[]>(this.baseurls + 'users'); // users is endpoint
    // return this.http.get<any>('https://jsonplaceholder.typicode.com/users')
     //return this.http.get<any>('https://jsonplaceholder.typicode.com/todos')
    // return this.http.get<any>('http://mu.mule-training.com/american-ws/flights?destination=LAX')
