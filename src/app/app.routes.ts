@@ -11,6 +11,7 @@ import { ParentComponent } from './parent/parent.component';
 import { LayoutComponent } from './layout/layout.component';
 import { ResolvescomComponent } from './resolvescom/resolvescom.component';
 import { resolveGuard } from './gaurds/resolve.guard';
+import { preventBackButtonGuard } from './prevent-back-button.guard';
 
 export const routes: Routes = 
 [
@@ -27,7 +28,7 @@ export const routes: Routes =
        {path:"header", component:LoginComponent},
          {path:"", redirectTo:'add-employee', pathMatch:'full'},
         { path: "add-employee", component: AddEmployeeComponent },
-       {path:"user-info",component:UserInfoComponent,title:'User Info'},
+       {path:"user-info",component:UserInfoComponent,title:'User Info',canDeactivate:[preventBackButtonGuard]},
         {path:"user/:id",component:UserComponent},
         {path:"user",component:UserComponent},
         {path: "student",component:StudentComponent},

@@ -26,7 +26,7 @@ export class StudentComponent implements OnInit {
   senddataToParent = 'studentdata';
   constructor() {}
   ngOnInit(): void {
-    console.log(this.inputvar);
+    console.log("parent data display here ",this.inputvar);
   }
   btnInfo() {
     this.myoutputdata.emit(this.senddataToParent);

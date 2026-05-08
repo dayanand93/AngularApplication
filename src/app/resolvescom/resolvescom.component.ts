@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, HostListener, inject, OnInit } from '@angular/core';
 import { UsersercicesService } from '../service/usersercices.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
@@ -16,7 +16,17 @@ export class ResolvescomComponent implements OnInit {
  //items = inject(ActivatedRoute).snapshot.data['items'] as any[];
   ngOnInit(): void {
   this.getEmployeeDataByResolve();
+    history.pushState(null, '', location.href);
   }
+  
+@HostListener('window:popstate', ['$event'])
+  onPopState(event: any) {
+    // When user presses back button
+    // Push again to prevent additional back presses
+    history.pushState(null, '', location.href);
+  }
+
+
   getEmployeeDataByResolve(){
   this.employeeData = this.route.snapshot.data['data'];
     console.log('route data', this.route.snapshot.data['data']);  

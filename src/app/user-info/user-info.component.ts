@@ -1,14 +1,14 @@
 import { Component, computed, effect, OnInit, signal, WritableSignal } from '@angular/core';
 import { StudentComponent } from '../student/student.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from "@angular/forms";
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [StudentComponent, CommonModule, FormsModule],
+  imports: [StudentComponent, CommonModule, FormsModule, ReactiveFormsModule],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })
@@ -23,17 +23,18 @@ export class UserInfoComponent implements OnInit{
   countNums = 0;
  countNum = signal(0);
 
-     constructor(private route :Router) { 
+     constructor(private route :Router ,private fb: FormBuilder){
    //   console.log("counter", this.countNum);
-      effect(() => {
-         console.log("track the counter value", this.countNum());
-      });
+      // effect(() => {
+      //    console.log("track the counter value", this.countNum());
+      // });
 
-      console.log("normal variable", this.countNums);
+      // console.log("normal variable", this.countNums);
      }
   ngOnInit(): void {
     this.observableExample();
     this.exampleofSubject();
+    this.formDetaildsvalidition();
   }
   sendStundent(): void{
     this.parentdata = "i am your paranet"
@@ -116,6 +117,33 @@ export class UserInfoComponent implements OnInit{
    this.fisrtName.set('David');
    this.lastName.set('kumar');
   }
+    myForm!: FormGroup;
+   formDetaildsvalidition(){
+    this.myForm = this.fb.group({
+      driverName: ['',Validators.required, Validators.pattern(/^[^#]*$/)],
+      
+    
+    })   
+
+   }
+  
+   message: string = "";
+  showErrormsg(value: string) {
+    this.myForm.get
+    this.myForm.controls['d riverName']
+
+    this.message =  value;
+    console.log("Blur value:", value);
+  }
+
+
+   submitForm(){
+    if(this.myForm.valid){
+      console.log("form value", this.myForm.value);
+    }else{
+      console.log("form is invalid");
+    }
+    }
 
 
 }

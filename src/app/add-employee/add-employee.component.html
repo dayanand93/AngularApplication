@@ -1,6 +1,6 @@
 <div class="d-flex" style="margin-top: 30px;">
     <div style="display: flex;margin-top: 52px;">
-        <p style="width:20%;"> Employee component</p>
+        <p style="width:20%;"> Employee component details</p>
          <marquee behavior="scroll" direction="left">
         This text will scroll from right to left.
     </marquee>
@@ -38,6 +38,9 @@
             <td>{{empdata.email}}</td>
             <td>{{empdata.address.city}}</td>
             <td><button (click)="deleteEmployee(empdata.id)">Delete</button></td>
+        </tr>
+        <tr *ngIf="empInfoGet?.length === 0">
+            <td colspan="6" class="text-center">No data available</td>
         </tr>
 
     </tbody>
