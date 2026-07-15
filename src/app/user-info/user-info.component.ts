@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from "@angular/forms";
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
+import { SimpleComponent } from '../simple/simple.component';
+import { ajax } from 'rxjs/ajax';
 
 @Component({
   selector: 'app-user-info',
   standalone: true,
-  imports: [StudentComponent, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [StudentComponent, CommonModule, FormsModule, ReactiveFormsModule, SimpleComponent],
   templateUrl: './user-info.component.html',
   styleUrl: './user-info.component.css'
 })
@@ -18,8 +20,8 @@ export class UserInfoComponent implements OnInit{
   count = 0;
   valdata: any;
   showdata:boolean = true;
-  username: string = "";
-
+  username: string = "daya";
+  userText: string = "Hello from parent";
   countNums = 0;
  countNum = signal(0);
 
@@ -35,6 +37,8 @@ export class UserInfoComponent implements OnInit{
     this.observableExample();
     this.exampleofSubject();
     this.formDetaildsvalidition();
+    this.exampleofSubject2();
+    this.examapleofuniqueCastToMultiCast();
   }
   sendStundent(): void{
     this.parentdata = "i am your paranet"
@@ -68,8 +72,15 @@ export class UserInfoComponent implements OnInit{
       {queryParams:{username:this.username}
     }
   )
-
+// what is queryParams 
+// queryParams is used to pass data from one component to another component using router.navigate method
    // alert ("Welcome " + this.username)
+   // what is difference between router.navigate and router.navigateByUrl
+   // router.navigate is used to navigate to a route using an array of route segments and query parameters
+   // router.navigateByUrl is used to navigate to a route using a string url
+   // difference between queryPrams and params in angular router
+   // queryParams is used to pass data from one component to another component using router.navigate method
+   // params is used to pass data from one component to another component using routerLink directive
    }
  singlesCount(){
    this.countNums++;
@@ -102,7 +113,7 @@ export class UserInfoComponent implements OnInit{
         console.log("subject example", res)
       })
       subject.next(Math.random());
-       subject.next(Math.random());
+       
    }
 
     mysingleSignal:WritableSignal<string>= signal('Hello Angular 18 Signals');
@@ -145,5 +156,37 @@ export class UserInfoComponent implements OnInit{
     }
     }
 
+    // subject example
+    exampleofSubject2(){
+     const subject = new Subject<number>();
+      subject.subscribe((res)=>{
+        console.log("subject example2", res)
+      })
+      subject.subscribe((res)=>{
+        console.log("subject example3", res)
+      })
+      subject.next(Math.random());
+    }
+    // how to convert obseravle unique cast to subject multi cast
+    examapleofuniqueCastToMultiCast(){
+      const data = ajax('https://jsonplaceholder.typicode.com/users');
+      // data.subscribe((res)=>{
+      //   console.log("unique cast", res)
+      // })
+      // data.subscribe((res)=>{
+      //   console.log("unique cast2", res)
+      // })
 
+      const subject = new Subject<any>();
+      subject.subscribe((res)=>{
+        console.log("multi cast 1", res)
+      })
+       subject.subscribe((res)=>{
+        console.log("multi cast 2", res)
+      })
+     const result = data.subscribe(subject);
+
+    }
+   
+  
 }

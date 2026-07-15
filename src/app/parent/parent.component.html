@@ -1,7 +1,13 @@
 <div style="margin-top: 50px;">
-<p>parent works!</p>
-<div>{{showchiltstrdata}}</div>
-<div>{{childataaceess}}</div>
-<button type="button" class="btn btn-primary" (click)="accesschild()">Access child method</button>
-<app-child></app-child>
+    <p>parent works!</p>
+    <div>{{showchiltstrdata}}</div>
+    <div>{{childataaceess}}</div>
+    <app-child></app-child>
+    <div>
+        <button type="button" class="btn btn-primary btn-sm" (click)="incrementCount()">Increment</button> &nbsp;
+        <button type="button" class="btn btn-primary btn-sm" (click)="decrementCount()">Decrement</button> &nbsp;
+         <button type="button" class="btn btn-primary btn-sm" (click)="accesschild()">Access child method</button>
+    </div>
+   
+
 </div>

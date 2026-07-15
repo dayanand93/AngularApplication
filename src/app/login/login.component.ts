@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  isLogin(): void {
+  isLoginbtn(): void {
     console.log('Email:', this.email);
     console.log('Password:', this.password);
    const payload ={

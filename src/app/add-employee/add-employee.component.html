@@ -33,6 +33,7 @@
     <tbody>
         <tr *ngFor="let empdata of empInfoGet "> <!--| async empInfoGet-->
             <td><a [routerLink]="['/layout','user', empdata.id]" class="align-adjust">{{empdata.id}}</a></td>
+            <!--routerLink is directive to navigate to a route with parameters-->
             <td>{{empdata.name}}</td>
             <td>{{empdata.username}}</td>
             <td>{{empdata.email}}</td>

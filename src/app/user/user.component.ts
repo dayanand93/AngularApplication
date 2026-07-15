@@ -22,6 +22,7 @@ export class UserComponent implements OnInit {
   }
   getRoutePrameterRize():void{
     let id = this.route.snapshot.params['id'];
+    //params is used to pass data from one component to another component using routerLink directive
    this.userServices.getuser(id).subscribe((res)=>{
        this.userDetails = [res];
        this.userDetails2 = res;
@@ -34,6 +35,7 @@ export class UserComponent implements OnInit {
      this.route.queryParams.subscribe((res)=>{
       this.getfielduser = res['username'];
        //console.log('testingh',res.username)
+       //queryParams is used to pass data from one component to another component using router.navigate method
      })
   }
   

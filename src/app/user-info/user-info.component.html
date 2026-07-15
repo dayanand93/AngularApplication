@@ -82,6 +82,19 @@
       {{message}}
     </div>
      </form>
+  </div> <br>
+   <div class="container" style="border: 1px solid green;">
+   <p>Example of ngOnChanges</p>
+   <input type="text" [(ngModel)]="userText" placeholder="enter your text" />
+   <app-simple [simpleInput]="userText"></app-simple>
+   </div>
+
+   <br>
+  <div style="border: 1px solid black;">
+    <div> Exaples of ng-content projection</div>
+    <app-student>
+      <h3>this is content projection</h3>
+    </app-student>
   </div>
   </div>
   

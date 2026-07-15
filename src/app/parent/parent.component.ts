@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, viewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild, viewChild } from '@angular/core';
 import { ChildComponent } from '../child/child.component';
 
 @Component({
@@ -8,11 +8,16 @@ import { ChildComponent } from '../child/child.component';
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.css'
 })
-export class ParentComponent implements AfterViewInit {
+export class ParentComponent implements OnInit, AfterViewInit {
   @ViewChild(ChildComponent) childs !: ChildComponent;
   showchiltstrdata: any
   childataaceess: string = '';
+  increment: void | undefined;
   
+  ngOnInit(): void {
+    this.examlesofPromise();
+  }
+
   ngAfterViewInit(): void {
     // this.showchiltstrdata = this.childs.str;
   
@@ -20,11 +25,34 @@ export class ParentComponent implements AfterViewInit {
 
   }
      childdata(){
-        alert(this.childs.str);
+      //  alert(this.childs.str);
+       this.increment = this.childs.incrementCount();
      }  
   accesschild(){
-    this.showchiltstrdata = this.childs.mymethod();
-      this.childataaceess = this.childs.str;
-   // this.childs.mymethod();
+   // this.showchiltstrdata = this.childs.mymethod();
+     this.childataaceess = this.childs.str;
+   this.childs.mymethod();
+    
   }
+  incrementCount() {
+    this.childs.incrementCount();
+  }
+  decrementCount() {
+    this.childs.decrementCount();
+  }
+  examlesofPromise(){
+    const myPromise = new Promise((resolve, reject) => {
+      console.log("Promise is pending...");
+      setTimeout(() => {
+        const data = "Promise resolved successfully!";
+        resolve(data);
+      }, 2000);
+    });
+    myPromise.then((result) => {
+      console.log(result);
+    }).catch((error) => {
+      console.error(error);
+    });
+  }
+  
 }

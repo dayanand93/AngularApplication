@@ -8,9 +8,17 @@ import { Component } from '@angular/core';
   styleUrl: './child.component.css'
 })
 export class ChildComponent {
-  str :string = "i am child component"
+  str :string = "i am your child component"
+  count = 0;
+  incrementCount() {
+    this.count++;
+  }
+  decrementCount() {
+    this.count--;
+  }
     mymethod(){
         alert("hello from child component method");
     }
+    
     
 }
